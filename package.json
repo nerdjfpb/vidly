@@ -1,0 +1,23 @@
+{
+  "name": "vidly",
+  "version": "1.0.0",
+  "description": "Express Js Project for Mosh Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerdjfpb/vidly.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerdjfpb/vidly/issues"
+  },
+  "homepage": "https://github.com/nerdjfpb/vidly#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
