@@ -1,4 +1,6 @@
 //require express and router to pass the router to index.js file
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const { Genre, validate } = require('../model/genre');
 const express = require('express');
 const router = express.Router();
@@ -27,7 +29,7 @@ router.get('/:id',async(req,res) => {
 });
 
 //insert a new data in genres
-router.post('/', async(req,res) => {
+router.post('/', auth, async(req,res) => {
 	//validate using Joi, with factoring function
 	const { error } = validate(req.body);
 	//if have any error then return bad request with error else just add the new one
@@ -61,7 +63,7 @@ router.put('/:id',async(req,res)=>{
 
 });
 
-router.delete('/:id',async(req,res) =>{
+router.delete('/:id',[auth, admin],async(req,res) =>{
 
 	//find an delete the data using moongoose & mongodb
 	const genre = await Genre.findByIdAndRemove(req.params.id);
