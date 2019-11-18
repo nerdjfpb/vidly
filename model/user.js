@@ -24,8 +24,7 @@ const userSchema = new mongoose.Schema({
 		maxlength: 1024
 		},
 		isAdmin: {
-			type: Boolean,
-			required: true
+			type: Boolean
 		}
 })
 

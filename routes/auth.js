@@ -30,8 +30,8 @@ router.post('/', async(req,res) => {
 function validate(req){
 	//initialing the shema for validation parameters
 	const schema = {
-        email : Joi.string().min(5).max(255).required().email(),
-        password : Joi.string().min(5).max(255).required()   
+    email : Joi.string().min(5).max(255).required().email(),
+    password : Joi.string().min(5).max(255).required()   
 	};
 	//finally return the result of validation
 	return Joi.validate(req, schema);
