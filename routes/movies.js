@@ -1,4 +1,6 @@
 //require express and router to pass the router to index.js file
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const mongoose = require('mongoose');
 const { Movie, validate } = require('../model/movie');
 const { Genre } = require('../model/genre');
@@ -52,7 +54,7 @@ router.post('/', async(req,res) => {
 });
 
 //update a existing data Using MongoDB
-router.put('/:id',async(req,res)=>{
+router.put('/:id',[auth],async(req,res)=>{
 	//error checking
 	const { error } = validate(req.body);
 
@@ -85,7 +87,7 @@ router.put('/:id',async(req,res)=>{
 });
 
 
-router.delete('/:id',async(req,res) =>{
+router.delete('/:id',[auth, admin],async(req,res) =>{
 
 	//find an delete the data using moongoose & mongodb
 	const movie = await Movie.findByIdAndRemove(req.params.id);
